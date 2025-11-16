@@ -1,0 +1,104 @@
+/* Custom Properties for Theme Colors */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #27ae60;
+    --light-bg: #f8f9fa;
+    --dark-bg: #e9ecef;
+    --text-color: #333;
+    --text-light: #666;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-hover: rgba(52, 152, 219, 0.3);
+}
+
+/* Additional hover effects and animations */
+.portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(52, 152, 219, 0.05);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.portfolio-item:hover::before {
+    opacity: 1;
+}
+
+.portfolio-overlay {
+    z-index: 2;
+}
+
+/* Button hover animation */
+.cta-btn::before,
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.cta-btn:hover::before,
+.submit-btn:hover::before {
+    opacity: 0.1;
+}
+
+/* Smooth scroll offset for fixed header */
+section[id] {
+    scroll-margin-top: 80px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Focus states for accessibility */
+.form-group input:focus,
+.form-group textarea:focus {
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.nav-menu a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Loading animation for images */
+.portfolio-item img {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-item img.loaded {
+    opacity: 1;
+}
+
+.portfolio-item img:not(.loaded) {
+    opacity: 0.6;
+    filter: blur(1px);
+}
