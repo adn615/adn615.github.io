@@ -57,8 +57,15 @@ Update the following in `index.html`:
 - Name, title, and description in the hero section
 - About section content and statistics
 - Skills and education details
+- Experience section with your internships and jobs
 - Contact information (email, phone, location)
 - Social media links
+
+### Resume Download
+Add your resume PDF to the root directory as `resume.pdf`:
+- File should be named `resume.pdf` exactly
+- Keep the file size reasonable (under 5MB) for web loading
+- The download button in the hero section will work once you add this file
 
 ### Styling
 - Colors and fonts can be modified in `styles/styles.css`
