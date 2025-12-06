@@ -100,9 +100,31 @@ p {
 }
 
 .nav-logo h1 {
-    font-size: 1.4rem;
-    color: var(--secondary-color);
-    letter-spacing: -0.01em;
+    font-size: 1.6rem;
+    font-family: 'Dancing Script', 'Playfair Display', cursive;
+    letter-spacing: 0.01em;
+    background: linear-gradient(120deg, #c05c43, #f4c361, #8ac0a3, #c05c43);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.signature-text {
+    font-family: 'Dancing Script', 'Playfair Display', cursive;
+    display: inline-block;
+    white-space: nowrap;
+    text-transform: capitalize;
+    background: linear-gradient(120deg, #c05c43, #f4c361, #8ac0a3, #c05c43);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.dark-mode .nav-logo h1,
+.dark-mode .signature-text {
+    text-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
 }
 
 .nav-menu {
