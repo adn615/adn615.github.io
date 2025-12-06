@@ -1,6 +1,28 @@
 // Flag JS-enabled for CSS animations
 document.body.classList.add('has-js');
 
+// Typewriter effect for hero description
+const typeTargets = document.querySelectorAll('.type-target');
+typeTargets.forEach(target => {
+    const fullText = target.getAttribute('data-text') || target.textContent;
+    target.textContent = '';
+    let index = 0;
+    const speed = 30;
+    target.classList.add('typewriter-active');
+
+    const type = () => {
+        if (index <= fullText.length) {
+            target.textContent = fullText.slice(0, index);
+            index += 1;
+            setTimeout(type, speed);
+        } else {
+            target.classList.remove('typewriter-active');
+        }
+    };
+
+    type();
+});
+
 // Theme toggle handling
 const themeToggle = document.querySelector('.theme-toggle');
 const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
