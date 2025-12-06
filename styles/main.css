@@ -258,6 +258,26 @@ p {
     line-height: 1.75;
 }
 
+.hero-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: linear-gradient(120deg, rgba(var(--primary-rgb), 0.12), rgba(var(--accent-rgb), 0.22));
+    color: var(--secondary-color);
+    font-weight: 700;
+    box-shadow: 0 14px 30px rgba(var(--primary-rgb), 0.18);
+    border: 1px solid rgba(var(--primary-rgb), 0.22);
+    margin-bottom: 20px;
+}
+
+.hero-highlight::before {
+    content: '•';
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
 .hero-tags {
     display: flex;
     flex-wrap: wrap;
@@ -595,6 +615,11 @@ p {
     gap: 10px;
 }
 
+.skill-category h3 i {
+    font-size: 1.35rem;
+    width: 22px;
+}
+
 .skill-category ul {
     list-style: none;
 }
@@ -614,7 +639,7 @@ p {
 }
 
 .skill-category li i {
-    color: var(--primary-color);
+    color: #6fa59b;
     font-size: 1rem;
     width: 18px;
     text-align: center;
@@ -679,6 +704,13 @@ p {
 }
 
 .education-year {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.education-text {
     color: var(--text-light);
     font-size: 0.95rem;
     margin-bottom: 10px;
@@ -1060,6 +1092,7 @@ p {
 .dark-mode .contact-item p,
 .dark-mode .experience-duration,
 .dark-mode .education-year,
+.dark-mode .education-text,
 .dark-mode .stat p,
 .dark-mode .skill-category li,
 .dark-mode .affiliations-list li {
