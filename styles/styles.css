@@ -1,15 +1,15 @@
 /* Custom Properties for Theme Colors */
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2c3e50;
-    --accent-color: #27ae60;
-    --light-bg: #f8f9fa;
-    --dark-bg: #e9ecef;
-    --text-color: #333;
-    --text-light: #666;
+    --primary-color: #0f766e;
+    --secondary-color: #1f2937;
+    --accent-color: #f59e0b;
+    --light-bg: #f6f1ea;
+    --dark-bg: #e6dfd5;
+    --text-color: #1f2a32;
+    --text-light: #4b5563;
     --white: #ffffff;
-    --shadow: rgba(0, 0, 0, 0.1);
-    --shadow-hover: rgba(52, 152, 219, 0.3);
+    --shadow: rgba(0, 0, 0, 0.08);
+    --shadow-hover: rgba(15, 118, 110, 0.22);
 }
 
 /* Additional hover effects and animations */
@@ -20,7 +20,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(52, 152, 219, 0.05);
+    background: rgba(15, 118, 110, 0.06);
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 1;
@@ -118,7 +118,7 @@ h4 .fas, h4 .fab {
 /* Focus states for accessibility */
 .form-group input:focus,
 .form-group textarea:focus {
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
 }
 
 .nav-menu a:focus {

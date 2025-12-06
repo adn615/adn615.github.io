@@ -1,3 +1,6 @@
+// Flag JS-enabled for CSS animations
+document.body.classList.add('has-js');
+
 // Mobile menu functionality
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
