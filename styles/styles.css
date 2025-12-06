@@ -1,12 +1,14 @@
 /* Custom Properties for Theme Colors */
 :root {
-    --primary-color: #0f766e;
-    --secondary-color: #1f2937;
-    --accent-color: #f59e0b;
-    --light-bg: #f6f1ea;
-    --dark-bg: #e6dfd5;
+    --primary-color: #c05c43;
+    --primary-rgb: 192, 92, 67;
+    --secondary-color: #1f2a32;
+    --accent-color: #f4c361;
+    --accent-rgb: 244, 195, 97;
+    --light-bg: #f7f1ec;
+    --dark-bg: #e9e0d5;
     --text-color: #1f2a32;
-    --text-light: #4b5563;
+    --text-light: #4b4f58;
     --white: #ffffff;
     --shadow: rgba(0, 0, 0, 0.08);
     --shadow-hover: rgba(15, 118, 110, 0.22);

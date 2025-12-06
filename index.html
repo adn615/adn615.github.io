@@ -29,6 +29,9 @@
                     <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
                 <div class="nav-actions">
+                    <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
                     <a href="#contact" class="nav-cta">Let's talk</a>
                 </div>
                 <div class="nav-toggle">
@@ -49,10 +52,10 @@
                 <p class="hero-subtitle">Senior Interior Design Student | Creative Space Designer</p>
                 <p class="hero-description">I craft serene, purposeful interiors that balance warmth with restraint. Every project pairs sustainable finishes, thoughtful lighting, and tactile materials to tell the story of the people who live there.</p>
                 <div class="hero-tags">
+                    <span class="chip">Public spaces</span>
+                    <span class="chip">Workplace</span>
                     <span class="chip">Residential</span>
-                    <span class="chip">Commercial</span>
-                    <span class="chip">Kitchen + Bath</span>
-                    <span class="chip">Lighting</span>
+                    <span class="chip">Visualization</span>
                 </div>
                 <div class="hero-buttons">
                     <a href="#portfolio" class="cta-btn primary">View My Work</a>
@@ -128,58 +131,42 @@
             <p class="section-subtitle">A collection of my recent interior design projects</p>
             <div class="portfolio-filters">
                 <span class="filter-chip active">All</span>
+                <span class="filter-chip">Public Space</span>
+                <span class="filter-chip">Workplace</span>
                 <span class="filter-chip">Residential</span>
-                <span class="filter-chip">Commercial</span>
-                <span class="filter-chip">Kitchen + Bath</span>
-                <span class="filter-chip">Lighting</span>
+                <span class="filter-chip">Visualization</span>
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop" alt="Modern Family Living Room">
+                    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=800&h=550&fit=crop" alt="Dallas Park & Recreation Project">
                     <div class="portfolio-overlay">
-                        <h3>Modern Family Living Room</h3>
-                        <p>Contemporary design with warm elements</p>
+                        <h3>Dallas Park & Recreation Project</h3>
+                        <p>Community pavilion and recreation hub with warm wood, daylight, and durable finishes.</p>
+                        <span class="portfolio-category">Public Space</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=800&h=550&fit=crop" alt="Grace Design Studios Office">
+                    <div class="portfolio-overlay">
+                        <h3>Grace Design Studios Office</h3>
+                        <p>Inclusive, wellness-focused workplace with biophilic zones and soft daylight control.</p>
+                        <span class="portfolio-category">Workplace</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800&h=550&fit=crop" alt="CASA COLORI Villa">
+                    <div class="portfolio-overlay">
+                        <h3>CASA COLORI Villa</h3>
+                        <p>Hans Hofmann–inspired vacation home balancing vibrant art walls with breezy flow.</p>
                         <span class="portfolio-category">Residential</span>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop" alt="Minimalist Kitchen Renovation">
+                    <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800&h=550&fit=crop" alt="Design Communications Renders">
                     <div class="portfolio-overlay">
-                        <h3>Minimalist Kitchen Renovation</h3>
-                        <p>Clean lines and functional storage solutions</p>
-                        <span class="portfolio-category">Kitchen</span>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop" alt="Office Space Design">
-                    <div class="portfolio-overlay">
-                        <h3>Modern Office Space</h3>
-                        <p>Productive environment with ergonomic considerations</p>
-                        <span class="portfolio-category">Commercial</span>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&h=400&fit=crop" alt="Studio Apartment">
-                    <div class="portfolio-overlay">
-                        <h3>Compact Studio Makeover</h3>
-                        <p>Maximizing small spaces for urban living</p>
-                        <span class="portfolio-category">Residential</span>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop" alt="Restaurant Interior">
-                    <div class="portfolio-overlay">
-                        <h3>Boutique Restaurant Interior</h3>
-                        <p>Creating ambiance for memorable dining experiences</p>
-                        <span class="portfolio-category">Commercial</span>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=600&h=400&fit=crop" alt="Bathroom Remodel">
-                    <div class="portfolio-overlay">
-                        <h3>Spa-Like Bathroom Remodel</h3>
-                        <p>Luxurious retreat in a compact space</p>
-                        <span class="portfolio-category">Bathroom</span>
+                        <h3>Design Communications</h3>
+                        <p>Concept render series using Midjourney, Vizcom, and Luma AI to convey color and light.</p>
+                        <span class="portfolio-category">Visualization</span>
                     </div>
                 </div>
             </div>
@@ -195,9 +182,11 @@
                     <h3><i class="fas fa-wrench"></i> Design Tools</h3>
                     <ul>
                         <li>Revit</li>
-                        <li>SketchUp</li>
                         <li>AutoCAD</li>
+                        <li>SketchUp</li>
                         <li>Chaos-Enscape</li>
+                        <li>Canvas</li>
+                        <li>Bluebeam</li>
                         <li>Adobe Creative Suite</li>
                         <li>V-Ray Rendering</li>
                     </ul>
@@ -218,8 +207,10 @@
                         <li>Client Communication</li>
                         <li>Project Management</li>
                         <li>Problem Solving</li>
+                        <li>Time Management</li>
                         <li>Attention to Detail</li>
                         <li>Creative Thinking</li>
+                        <li>Teamwork</li>
                     </ul>
                 </div>
             </div>
@@ -233,11 +224,19 @@
             <div class="education-timeline">
                 <div class="education-item">
                     <div class="education-content">
-                        <h3>Bachelor of Fine Arts in Interior Design</h3>
+                        <div class="education-header">
+                            <h3>Bachelor of Fine Arts in Interior Design</h3>
+                            <img src="./assets/unt-stacked-logo.svg" alt="University of North Texas logo" class="education-logo">
+                        </div>
                         <p class="education-institution">University of North Texas - Denton - Texas</p>
                         <p class="education-year">Expected Graduation: May 2026</p>
                         <p>Focused coursework in sustainable materials, universal design, and digital modeling. </p>
-                        <p>Active member of the Interior Design Student Association.</p>
+                        <p>Active member of:</p>
+                        <ul class="affiliations-list">
+                            <li>IIDA - International Interior Design Association.</li>
+                            <li>ASID - American Society of Interior Designers</li>
+                            <li>NEWH - The Hospitality Industry Network</li>
+                        </ul>
                     </div>
                 </div>
             </div>

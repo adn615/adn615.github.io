@@ -1,6 +1,29 @@
 // Flag JS-enabled for CSS animations
 document.body.classList.add('has-js');
 
+// Theme toggle handling
+const themeToggle = document.querySelector('.theme-toggle');
+const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const storedTheme = localStorage.getItem('theme');
+const applyTheme = (mode) => {
+    if (mode === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+        document.body.classList.remove('dark-mode');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+};
+
+applyTheme(storedTheme || (prefersDark ? 'dark' : 'light'));
+
+themeToggle.addEventListener('click', () => {
+    const isDark = document.body.classList.contains('dark-mode');
+    const nextTheme = isDark ? 'light' : 'dark';
+    applyTheme(nextTheme);
+    localStorage.setItem('theme', nextTheme);
+});
+
 // Mobile menu functionality
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
