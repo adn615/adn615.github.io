@@ -951,6 +951,16 @@ p {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
 
+.dark-mode .floating-note {
+    background: rgba(15, 23, 42, 0.9);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark-mode .floating-note .note-text,
+.dark-mode .floating-note .eyebrow {
+    color: #e5e7eb;
+}
+
 .dark-mode .portfolio {
     background: rgba(15, 23, 42, 0.6);
 }
@@ -1105,4 +1115,3 @@ p {
         gap: 8px;
     }
 }
-
