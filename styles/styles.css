@@ -78,6 +78,43 @@ section[id] {
     background: var(--secondary-color);
 }
 
+/* Icon Styling */
+.fas, .fab {
+    margin-right: 8px;
+    font-size: 1em;
+}
+
+h2 .fas, h2 .fab {
+    color: var(--primary-color);
+    margin-right: 12px;
+}
+
+h3 .fas, h3 .fab {
+    color: var(--primary-color);
+    margin-right: 10px;
+    font-size: 0.9em;
+}
+
+h4 .fas, h4 .fab {
+    color: var(--primary-color);
+    margin-right: 8px;
+    font-size: 0.9em;
+}
+
+.nav-menu .fas, .nav-menu .fab {
+    margin-right: 6px;
+}
+
+.social-link .fab {
+    font-size: 1.1em;
+    margin-right: 8px;
+}
+
+.footer .fas {
+    color: #e74c3c;
+    margin-right: 6px;
+}
+
 /* Focus states for accessibility */
 .form-group input:focus,
 .form-group textarea:focus {

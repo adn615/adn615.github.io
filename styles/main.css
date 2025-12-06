@@ -13,7 +13,8 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+    background-color: #fcfcfc;
 }
 
 .container {
@@ -101,6 +102,7 @@ p {
 .hero {
     padding: 160px 0 120px;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+/* background: linear-gradient(135deg, #282f21 0%, #fcfafa 100%); */
 }
 
 .hero-container {
@@ -137,11 +139,17 @@ p {
     line-height: 1.7;
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
 .cta-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     padding: 15px 30px;
-    background-color: #3498db;
-    color: white;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
@@ -149,10 +157,28 @@ p {
     box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
 }
 
-.cta-btn:hover {
+.cta-btn.primary {
+    background-color: #3498db;
+    color: white;
+}
+
+.cta-btn.primary:hover {
     background-color: #2980b9;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.cta-btn.secondary {
+    background-color: transparent;
+    color: #2c3e50;
+    border: 2px solid #2c3e50;
+}
+
+.cta-btn.secondary:hover {
+    background-color: #2c3e50;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(44, 62, 80, 0.3);
 }
 
 .hero-image {
@@ -343,6 +369,60 @@ p {
     margin-bottom: 15px;
 }
 
+/* Experience Section */
+.experience {
+    background-color: #f8f9fa;
+}
+
+.experience-timeline {
+    margin-top: 50px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #3498db;
+}
+
+.experience-item {
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: -32px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #3498db;
+}
+
+.experience-content h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+}
+
+.experience-company {
+    color: #3498db;
+    font-weight: 500;
+    margin: 5px 0 10px;
+}
+
+.experience-duration {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
 /* Contact Section */
 .contact {
     background-color: #f8f9fa;
@@ -518,6 +598,16 @@ p {
         height: 300px;
     }
 
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cta-btn {
+        justify-content: center;
+        padding: 12px 25px;
+    }
+
     .nav-menu {
         display: none;
     }
@@ -565,6 +655,10 @@ p {
     }
 
     .education-timeline {
+        padding-left: 20px;
+    }
+
+    .experience-timeline {
         padding-left: 20px;
     }
 
