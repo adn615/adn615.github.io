@@ -582,10 +582,20 @@ p {
     border-bottom: 1px solid rgba(31, 41, 55, 0.08);
     font-weight: 600;
     color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .skill-category li:last-child {
     border-bottom: none;
+}
+
+.skill-category li i {
+    color: var(--primary-color);
+    font-size: 1rem;
+    width: 18px;
+    text-align: center;
 }
 
 /* Education Section */
