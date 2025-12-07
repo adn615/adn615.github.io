@@ -369,6 +369,10 @@ p {
     transform: translateY(-2px);
 }
 
+.cta-btn.secondary i {
+    color: inherit;
+}
+
 .hero-stats-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -1138,6 +1142,16 @@ p {
 .dark-mode .submit-btn,
 .dark-mode .cta-btn.primary {
     box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+}
+
+.dark-mode .cta-btn.secondary {
+    color: #f8fafc;
+    border-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark-mode .cta-btn.secondary i {
+    color: #f8fafc;
 }
 
 .dark-mode .footer {
