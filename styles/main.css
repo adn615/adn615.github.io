@@ -712,10 +712,13 @@ p {
 }
 
 .education-logo {
-    height: 48px;
+    height: 56px;
     width: auto;
     object-fit: contain;
-    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.08));
+    border-radius: 10px;
+    padding: 6px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
 }
 
 .education-institution {
@@ -789,6 +792,23 @@ p {
 .experience-content h3 {
     font-size: 1.3rem;
     color: var(--secondary-color);
+}
+
+.experience-company-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.experience-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.7);
+    padding: 4px;
 }
 
 .experience-company {
@@ -1131,12 +1151,14 @@ p {
 .dark-mode .education-text,
 .dark-mode .stat p,
 .dark-mode .skill-category li,
-.dark-mode .affiliations-list li {
+.dark-mode .affiliations-list li,
+.dark-mode .experience-company {
     color: #cbd5e1;
 }
 
 .dark-mode .education-logo {
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45)) brightness(1.05);
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45)) brightness(1.05);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .dark-mode .submit-btn,
