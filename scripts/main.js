@@ -74,12 +74,16 @@ const portfolioItems = document.querySelectorAll('.portfolio-item');
 portfolioItems.forEach(item => {
     item.addEventListener('click', () => {
         const imgSrc = item.querySelector('img').src;
-        const title = item.querySelector('h3').textContent;
-        const description = item.querySelector('p').textContent;
+        // const title = item.querySelector('h3').textContent;
+        // const description = item.querySelector('p').textContent;
+
+        const title = item.querySelector('img').alt;
 
         modal.style.display = 'block';
         modalImg.src = imgSrc;
-        modalCaption.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
+        // modalCaption.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
+
+        modalCaption.innerHTML = `<h3>${title}</h3>`;
 
         // Prevent body scroll when modal is open
         document.body.style.overflow = 'hidden';
