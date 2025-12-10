@@ -174,6 +174,7 @@ portfolioImages.forEach(img => {
 
 // Header background change on scroll
 const header = document.querySelector('.header');
+const backToTopBtn = document.querySelector('.back-to-top');
 let lastScrollTop = 0;
 
 window.addEventListener('scroll', () => {
@@ -193,5 +194,24 @@ window.addEventListener('scroll', () => {
         }
     }
 
+    if (backToTopBtn) {
+        if (scrollTop > 260) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    }
+
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
+
+window.dispatchEvent(new Event('scroll'));
+
+if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
