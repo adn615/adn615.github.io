@@ -364,6 +364,75 @@
         <div id="modal-caption"></div>
     </div>
 
+    <!-- Hidden Control Portal -->
+    <div id="control-portal" class="portal" aria-hidden="true">
+        <div class="portal-backdrop" data-portal-close></div>
+        <div class="portal-card" role="dialog" aria-modal="true" aria-labelledby="portal-title">
+            <button class="portal-close" type="button" data-portal-close aria-label="Close portal">
+                <i class="fas fa-xmark"></i>
+            </button>
+            <div class="portal-login" data-portal-step="login">
+                <p class="portal-kicker">Private access</p>
+                <h3 id="portal-title">Studio Control Portal</h3>
+                <p class="portal-description">Enter the passphrase to unlock private controls.</p>
+                <div class="portal-field">
+                    <label for="portal-passphrase">Passphrase</label>
+                    <input type="password" id="portal-passphrase" autocomplete="off" placeholder="Enter passphrase">
+                </div>
+                <button type="button" class="portal-btn primary" id="portal-unlock">Unlock portal</button>
+                <p class="portal-message" id="portal-message" role="status" aria-live="polite"></p>
+            </div>
+            <div class="portal-controls" data-portal-step="controls" hidden>
+                <p class="portal-kicker">Control panel</p>
+                <h3 id="portal-controls-title">Studio Controls</h3>
+                <p class="portal-description">Manage presentation toggles without editing the page.</p>
+                <div class="portal-controls-grid">
+                    <div class="portal-control">
+                        <div>
+                            <p class="portal-control-title">Theme</p>
+                            <p class="portal-control-note">Switch between light and dark modes.</p>
+                        </div>
+                        <button type="button" class="portal-btn" id="portal-theme-toggle">Switch to dark</button>
+                    </div>
+                    <div class="portal-control">
+                        <div>
+                            <p class="portal-control-title">Portfolio visibility</p>
+                            <p class="portal-control-note">Hide or reveal the portfolio section.</p>
+                        </div>
+                        <label class="portal-switch">
+                            <input type="checkbox" id="portal-hide-portfolio">
+                            <span class="portal-slider"></span>
+                        </label>
+                    </div>
+                    <div class="portal-control">
+                        <div>
+                            <p class="portal-control-title">Contact visibility</p>
+                            <p class="portal-control-note">Hide or reveal the contact section.</p>
+                        </div>
+                        <label class="portal-switch">
+                            <input type="checkbox" id="portal-hide-contact">
+                            <span class="portal-slider"></span>
+                        </label>
+                    </div>
+                    <div class="portal-control">
+                        <div>
+                            <p class="portal-control-title">Focus mode</p>
+                            <p class="portal-control-note">Hide navigation and footer for clean screenshots.</p>
+                        </div>
+                        <label class="portal-switch">
+                            <input type="checkbox" id="portal-focus-mode">
+                            <span class="portal-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="portal-actions">
+                    <button type="button" class="portal-btn ghost" id="portal-reset">Reset toggles</button>
+                    <button type="button" class="portal-btn" id="portal-lock">Lock portal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <button class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>

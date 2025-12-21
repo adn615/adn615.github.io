@@ -215,3 +215,196 @@ if (backToTopBtn) {
         });
     });
 }
+
+// Hidden control portal
+const portal = document.getElementById('control-portal');
+if (portal) {
+    const portalPassphrase = 'alicenguyen';
+    const portalKeySequence = 'university';
+    const portalSettingsKey = 'portalSettings';
+    const portalUnlockKey = 'portalUnlocked';
+
+    const portalLogin = portal.querySelector('[data-portal-step="login"]');
+    const portalControls = portal.querySelector('[data-portal-step="controls"]');
+    const portalPassphraseInput = document.getElementById('portal-passphrase');
+    const portalUnlockBtn = document.getElementById('portal-unlock');
+    const portalMessage = document.getElementById('portal-message');
+    const portalThemeToggle = document.getElementById('portal-theme-toggle');
+    const portalHidePortfolioToggle = document.getElementById('portal-hide-portfolio');
+    const portalHideContactToggle = document.getElementById('portal-hide-contact');
+    const portalFocusModeToggle = document.getElementById('portal-focus-mode');
+    const portalResetBtn = document.getElementById('portal-reset');
+    const portalLockBtn = document.getElementById('portal-lock');
+    const portalCloseButtons = portal.querySelectorAll('[data-portal-close]');
+    const navLogo = document.querySelector('.nav-logo');
+
+    let portalSequenceBuffer = '';
+    let portalSequenceTimer;
+
+    const defaultPortalSettings = {
+        hidePortfolio: false,
+        hideContact: false,
+        focusMode: false
+    };
+
+    const loadPortalSettings = () => {
+        try {
+            const stored = localStorage.getItem(portalSettingsKey);
+            return stored ? { ...defaultPortalSettings, ...JSON.parse(stored) } : { ...defaultPortalSettings };
+        } catch (error) {
+            return { ...defaultPortalSettings };
+        }
+    };
+
+    const savePortalSettings = (settings) => {
+        localStorage.setItem(portalSettingsKey, JSON.stringify(settings));
+    };
+
+    const applyPortalSettings = (settings) => {
+        document.body.classList.toggle('portal-hide-portfolio', settings.hidePortfolio);
+        document.body.classList.toggle('portal-hide-contact', settings.hideContact);
+        document.body.classList.toggle('portal-focus-mode', settings.focusMode);
+    };
+
+    const syncPortalToggles = (settings) => {
+        portalHidePortfolioToggle.checked = settings.hidePortfolio;
+        portalHideContactToggle.checked = settings.hideContact;
+        portalFocusModeToggle.checked = settings.focusMode;
+    };
+
+    const updatePortalThemeButton = () => {
+        const isDark = document.body.classList.contains('dark-mode');
+        portalThemeToggle.textContent = isDark ? 'Switch to light' : 'Switch to dark';
+    };
+
+    let portalSettings = loadPortalSettings();
+    applyPortalSettings(portalSettings);
+    syncPortalToggles(portalSettings);
+    updatePortalThemeButton();
+
+    const showPortalStep = (step) => {
+        if (step === 'controls') {
+            portalLogin.hidden = true;
+            portalControls.hidden = false;
+            updatePortalThemeButton();
+        } else {
+            portalControls.hidden = true;
+            portalLogin.hidden = false;
+        }
+    };
+
+    const openPortal = () => {
+        portal.classList.add('open');
+        portal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('portal-open');
+        if (sessionStorage.getItem(portalUnlockKey) === 'true') {
+            showPortalStep('controls');
+        } else {
+            showPortalStep('login');
+            portalPassphraseInput.focus();
+        }
+    };
+
+    const closePortal = () => {
+        portal.classList.remove('open');
+        portal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('portal-open');
+        portalMessage.textContent = '';
+        portalPassphraseInput.value = '';
+    };
+
+    const unlockPortal = () => {
+        const attempt = portalPassphraseInput.value.trim();
+        if (attempt === portalPassphrase) {
+            sessionStorage.setItem(portalUnlockKey, 'true');
+            portalMessage.textContent = '';
+            showPortalStep('controls');
+        } else {
+            portalMessage.textContent = 'Incorrect passphrase.';
+        }
+    };
+
+    portalUnlockBtn.addEventListener('click', unlockPortal);
+    portalPassphraseInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            unlockPortal();
+        }
+    });
+
+    portalCloseButtons.forEach(button => {
+        button.addEventListener('click', closePortal);
+    });
+
+    portalThemeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.contains('dark-mode');
+        const nextTheme = isDark ? 'light' : 'dark';
+        applyTheme(nextTheme);
+        localStorage.setItem('theme', nextTheme);
+        updatePortalThemeButton();
+    });
+
+    portalHidePortfolioToggle.addEventListener('change', () => {
+        portalSettings.hidePortfolio = portalHidePortfolioToggle.checked;
+        applyPortalSettings(portalSettings);
+        savePortalSettings(portalSettings);
+    });
+
+    portalHideContactToggle.addEventListener('change', () => {
+        portalSettings.hideContact = portalHideContactToggle.checked;
+        applyPortalSettings(portalSettings);
+        savePortalSettings(portalSettings);
+    });
+
+    portalFocusModeToggle.addEventListener('change', () => {
+        portalSettings.focusMode = portalFocusModeToggle.checked;
+        applyPortalSettings(portalSettings);
+        savePortalSettings(portalSettings);
+    });
+
+    portalResetBtn.addEventListener('click', () => {
+        portalSettings = { ...defaultPortalSettings };
+        applyPortalSettings(portalSettings);
+        syncPortalToggles(portalSettings);
+        savePortalSettings(portalSettings);
+    });
+
+    portalLockBtn.addEventListener('click', () => {
+        sessionStorage.removeItem(portalUnlockKey);
+        showPortalStep('login');
+        portalPassphraseInput.value = '';
+        portalMessage.textContent = '';
+    });
+
+    if (navLogo) {
+        navLogo.addEventListener('dblclick', openPortal);
+    }
+
+    document.addEventListener('keydown', (event) => {
+        if (portal.classList.contains('open') && event.key === 'Escape') {
+            closePortal();
+            return;
+        }
+
+        const target = event.target;
+        const isEditable = target instanceof HTMLElement && (target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName));
+        if (isEditable || event.ctrlKey || event.metaKey || event.altKey) {
+            return;
+        }
+
+        const key = event.key.toLowerCase();
+        if (key.length !== 1 || !/[a-z0-9]/.test(key)) {
+            return;
+        }
+
+        portalSequenceBuffer = `${portalSequenceBuffer}${key}`.slice(-portalKeySequence.length);
+        clearTimeout(portalSequenceTimer);
+        portalSequenceTimer = setTimeout(() => {
+            portalSequenceBuffer = '';
+        }, 1200);
+
+        if (portalSequenceBuffer === portalKeySequence) {
+            openPortal();
+            portalSequenceBuffer = '';
+        }
+    });
+}
