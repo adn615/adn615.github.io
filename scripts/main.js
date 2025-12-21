@@ -223,7 +223,7 @@ if (portal) {
     const portalKeySequence = 'university';
     const portalSettingsKey = 'portalSettings';
     const portalUnlockKey = 'portalUnlocked';
-    const portalAnalyticsEndpoint = 'analytics-proxy.alice-nguyen615.workers.dev';
+    const portalAnalyticsEndpoint = 'https://analytics-proxy.alice-nguyen615.workers.dev';
 
     const portalLogin = portal.querySelector('[data-portal-step="login"]');
     const portalControls = portal.querySelector('[data-portal-step="controls"]');
