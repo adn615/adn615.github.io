@@ -1084,6 +1084,32 @@ p {
     margin-top: 16px;
 }
 
+.portal-metric {
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: rgba(31, 41, 55, 0.06);
+    border: 1px solid rgba(31, 41, 55, 0.1);
+}
+
+.portal-metric-label {
+    margin: 0 0 6px;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.portal-metric-value {
+    margin: 0 0 6px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.portal-metric-note {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
 .portal-control {
     display: flex;
     align-items: center;
@@ -1211,6 +1237,11 @@ p {
 }
 
 .dark-mode .portal-control {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .portal-metric {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.1);
 }

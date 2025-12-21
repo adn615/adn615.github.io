@@ -386,6 +386,11 @@
                 <p class="portal-kicker">Control panel</p>
                 <h3 id="portal-controls-title">Studio Controls</h3>
                 <p class="portal-description">Manage presentation toggles without editing the page.</p>
+                <div class="portal-metric">
+                    <p class="portal-metric-label">Visitors (last 24h)</p>
+                    <p class="portal-metric-value" id="portal-visitor-count">Not connected</p>
+                    <p class="portal-metric-note">Connect a Cloudflare Worker endpoint to show live counts.</p>
+                </div>
                 <div class="portal-controls-grid">
                     <div class="portal-control">
                         <div>
@@ -438,5 +443,8 @@
     </button>
 
     <script src="scripts/main.js"></script>
+    <!-- Cloudflare Web Analytics -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "e283be1206dd46f48644090cda829946"}'></script>
+    <!-- End Cloudflare Web Analytics -->
 </body>
 </html>

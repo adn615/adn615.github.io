@@ -223,6 +223,7 @@ if (portal) {
     const portalKeySequence = 'university';
     const portalSettingsKey = 'portalSettings';
     const portalUnlockKey = 'portalUnlocked';
+    const portalAnalyticsEndpoint = 'analytics-proxy.alice-nguyen615.workers.dev';
 
     const portalLogin = portal.querySelector('[data-portal-step="login"]');
     const portalControls = portal.querySelector('[data-portal-step="controls"]');
@@ -235,6 +236,7 @@ if (portal) {
     const portalFocusModeToggle = document.getElementById('portal-focus-mode');
     const portalResetBtn = document.getElementById('portal-reset');
     const portalLockBtn = document.getElementById('portal-lock');
+    const portalVisitorCount = document.getElementById('portal-visitor-count');
     const portalCloseButtons = portal.querySelectorAll('[data-portal-close]');
     const navLogo = document.querySelector('.nav-logo');
 
@@ -277,6 +279,24 @@ if (portal) {
         portalThemeToggle.textContent = isDark ? 'Switch to light' : 'Switch to dark';
     };
 
+    const updateVisitorCount = async () => {
+        if (!portalVisitorCount || !portalAnalyticsEndpoint) {
+            return;
+        }
+        portalVisitorCount.textContent = 'Loading...';
+        try {
+            const response = await fetch(portalAnalyticsEndpoint, { cache: 'no-store' });
+            if (!response.ok) {
+                throw new Error('Bad response');
+            }
+            const data = await response.json();
+            const count = Number(data.count);
+            portalVisitorCount.textContent = Number.isFinite(count) ? count.toLocaleString() : 'Unavailable';
+        } catch (error) {
+            portalVisitorCount.textContent = 'Unavailable';
+        }
+    };
+
     let portalSettings = loadPortalSettings();
     applyPortalSettings(portalSettings);
     syncPortalToggles(portalSettings);
@@ -299,6 +319,7 @@ if (portal) {
         document.body.classList.add('portal-open');
         if (sessionStorage.getItem(portalUnlockKey) === 'true') {
             showPortalStep('controls');
+            updateVisitorCount();
         } else {
             showPortalStep('login');
             portalPassphraseInput.focus();
@@ -319,6 +340,7 @@ if (portal) {
             sessionStorage.setItem(portalUnlockKey, 'true');
             portalMessage.textContent = '';
             showPortalStep('controls');
+            updateVisitorCount();
         } else {
             portalMessage.textContent = 'Incorrect passphrase.';
         }
