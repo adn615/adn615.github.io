@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="#">
 </head>
 <body>
     <!-- Header & Navigation -->
@@ -28,6 +28,12 @@
                     <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
                     <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
+                <div class="nav-actions">
+                    <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#contact" class="nav-cta">Let's talk</a>
+                </div>
                 <div class="nav-toggle">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -41,16 +47,52 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h2>Hello, I'm Alice Nguyen</h2>
+                <div class="hero-kicker">Interior design · Sustainable materials · Quiet luxury</div>
+                <h2>Hello, I'm <span class="signature-text">Alice Nguyen</span></h2>
                 <p class="hero-subtitle">Senior Interior Design Student | Creative Space Designer</p>
-                <p class="hero-description">Passionate about transforming spaces into harmonious environments that reflect personality and functionality. Currently pursuing my degree in Interior Design, specializing in sustainable and minimalist design.</p>
+                <p class="hero-description type-target" data-text="I craft serene, purposeful interiors that balance warmth with restraint. Every project pairs sustainable finishes, thoughtful lighting, and tactile materials to tell the story of the people who live there.">I craft serene, purposeful interiors that balance warmth with restraint. Every project pairs sustainable finishes, thoughtful lighting, and tactile materials to tell the story of the people who live there.</p>
+                <p class="hero-highlight">Actively seeking a part-time interior design role for Spring 2026 and open to full-time opportunities starting after May 2026.</p>
+                <div class="hero-tags">
+                    <span class="chip">Public spaces</span>
+                    <span class="chip">Workplace</span>
+                    <span class="chip">Residential</span>
+                    <span class="chip">Visualization</span>
+                </div>
                 <div class="hero-buttons">
                     <a href="#portfolio" class="cta-btn primary">View My Work</a>
-                    <a href="./assets/resume.pdf" download="Alice_Nguyen_Resume.pdf" class="cta-btn secondary"><i class="fas fa-file-pdf"></i> Download Resume</a>
+                    <a href="./assets/resume.pdf" download="Alice_Nguyen_Resume.pdf" class="cta-btn secondary"><i class="fas fa-file-pdf"></i>↓ Resume</a>
+                    <!-- <a href="#" download="Alice_Nguyen_Portfolio.pdf" class="cta-btn secondary"><i class="fas fa-images"></i>↓ Portfolio</a> -->
+                </div>
+                <div class="hero-stats-row">
+                    <div class="stat-card">
+                        <p class="eyebrow">Projects</p>
+                        <h3>7+</h3>
+                        <span>Residential & commercial</span>
+                    </div>
+                    <div class="stat-card">
+                        <p class="eyebrow">Experience</p>
+                        <h3>1+ yrs</h3>
+                        <span>Studios & internships</span>
+                    </div>
+                    <div class="stat-card">
+                        <p class="eyebrow">Focus</p>
+                        <h3>3 pillars</h3>
+                        <span>Sustainability · Comfort · Flow</span>
+                    </div>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="./assets/p_pic.jpg" alt="Alice Nguyen - Interior Designer">
+                <div class="hero-visual">
+                    <div class="hero-blob"></div>
+                    <img src="./assets/p_pic.jpg" alt="Alice Nguyen - Interior Designer">
+                    <div class="floating-note">
+                        <div class="note-dot"></div>
+                        <div>
+                            <p class="eyebrow">Based in Dallas-Fort Worth</p>
+                            <p class="note-text">Designing light-filled, grounded spaces for modern living.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -59,6 +101,7 @@
     <section id="about" class="about">
         <div class="container">
             <h2><i class="fas fa-user-circle"></i> About Me</h2>
+            <p class="section-subtitle">Thoughtful design that blends function, calm, and personality.</p>
             <div class="about-content">
                 <div class="about-text">
                     <p>As a senior interior design student on the cusp of graduation, I've developed a keen eye for creating spaces that blend aesthetic beauty with practical functionality. My passion lies in sustainable design approaches that respect both the environment and the end user's lifestyle.</p>
@@ -67,7 +110,7 @@
                 </div>
                 <div class="about-stats">
                     <div class="stat">
-                        <h3>4+</h3>
+                        <h3>7+</h3>
                         <p>Projects Completed</p>
                     </div>
                     <div class="stat">
@@ -88,54 +131,52 @@
         <div class="container">
             <h2><i class="fas fa-images"></i> My Portfolio</h2>
             <p class="section-subtitle">A collection of my recent interior design projects</p>
+            <div class="portfolio-filters">
+                <span class="filter-chip active">All</span>
+                <span class="filter-chip">Workplace</span>
+                <span class="filter-chip">Multi-family Home</span>
+                <span class="filter-chip">Residential</span>
+            </div>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop" alt="Modern Family Living Room">
-                    <div class="portfolio-overlay">
-                        <h3>Modern Family Living Room</h3>
-                        <p>Contemporary design with warm elements</p>
-                        <span class="portfolio-category">Residential</span>
+                <div>
+                    <div class="portfolio-item">
+                        <img src="./assets/projects/GRACE DESIGN STUDIOS_PORFOLIO_2025.jpg" alt="Grace Design Studios Office">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Workplace</span>
+                        </div>
                     </div>
+                    <div>
+                        <h3>Grace Design Studios Office</h3>
+                        <p>An inclusive, sustainable, and comfortable workplace with biophilic zones and soft daylight control.</p>
+                    </div>
+                    <a href="./assets/projects/portfolio-grace-office.pdf" download="grace-office.pdf" class="cta-btn secondary"><i class="fas fa-images"></i>↓ Download PDF</a>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop" alt="Minimalist Kitchen Renovation">
-                    <div class="portfolio-overlay">
-                        <h3>Minimalist Kitchen Renovation</h3>
-                        <p>Clean lines and functional storage solutions</p>
-                        <span class="portfolio-category">Kitchen</span>
+                <div>
+                    <div class="portfolio-item">
+                        <img src="./assets/projects/Eco Haven Apartment.png" alt="Eco Haven Apartment">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Multi-family Home</span>
+                        </div>
                     </div>
+                    <div>
+                        <h3>Eco Haven Apartment</h3>
+                        <p>A wellness-focused one-bedroom home integrating clean air, natural light, nature, and active living.</p>
+                    </div>
+                    <a href="./assets/projects/portfolio-eco-haven.pdf" download="eco-haven.pdf" class="cta-btn secondary"><i class="fas fa-images"></i>↓ Download PDF</a>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop" alt="Office Space Design">
-                    <div class="portfolio-overlay">
-                        <h3>Modern Office Space</h3>
-                        <p>Productive environment with ergonomic considerations</p>
-                        <span class="portfolio-category">Commercial</span>
+                <div>
+                    <div class="portfolio-item">
+                        <img src="./assets/projects/CASA COLORI VACATION HOME.png" alt="CASA COLORI Villa">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Residential</span>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&h=400&fit=crop" alt="Studio Apartment">
-                    <div class="portfolio-overlay">
-                        <h3>Compact Studio Makeover</h3>
-                        <p>Maximizing small spaces for urban living</p>
-                        <span class="portfolio-category">Residential</span>
+                    <div>
+                        <h3>CASA COLORI Villa</h3>
+                        <p>Colorful Positano retreat inspired by Hans Hofmann, blending bold color with light and emotion.</p>
+                        <!-- <p>Hans Hofmann-inspired vacation home balancing vibrant art walls with breezy flow.</p> -->
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop" alt="Restaurant Interior">
-                    <div class="portfolio-overlay">
-                        <h3>Boutique Restaurant Interior</h3>
-                        <p>Creating ambiance for memorable dining experiences</p>
-                        <span class="portfolio-category">Commercial</span>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=600&h=400&fit=crop" alt="Bathroom Remodel">
-                    <div class="portfolio-overlay">
-                        <h3>Spa-Like Bathroom Remodel</h3>
-                        <p>Luxurious retreat in a compact space</p>
-                        <span class="portfolio-category">Bathroom</span>
-                    </div>
+                    <a href="./assets/projects/portfolio-casa-colori.pdf" download="casa-colori.pdf" class="cta-btn secondary"><i class="fas fa-images"></i>↓ Download PDF</a>
                 </div>
             </div>
         </div>
@@ -149,32 +190,51 @@
                 <div class="skill-category">
                     <h3><i class="fas fa-wrench"></i> Design Tools</h3>
                     <ul>
-                        <li>Revit</li>
-                        <li>SketchUp</li>
-                        <li>AutoCAD</li>
-                        <li>Chaos-Enscape</li>
-                        <li>Adobe Creative Suite</li>
-                        <li>V-Ray Rendering</li>
+                        <li><i class="fas fa-drafting-compass"></i><span>Revit</span></li>
+                        <li><i class="fas fa-ruler-combined"></i><span>AutoCAD</span></li>
+                        <li><i class="fas fa-cubes"></i><span>SketchUp</span></li>
+                        <li><i class="fas fa-vr-cardboard"></i><span>Chaos-Enscape</span></li>
+                        <li><i class="fas fa-tablet-alt"></i><span>Canvas</span></li>
+                        <li><i class="fas fa-pen-ruler"></i><span>Bluebeam</span></li>
+                        <li><i class="fas fa-palette"></i><span>Adobe Creative Suite</span></li>
+                        <li><i class="fas fa-lightbulb"></i><span>V-Ray Rendering</span></li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-star"></i> Specialties</h3>
+                    <h3><i class="fas fa-star"></i>Specialties</h3>
                     <ul>
-                        <li>Sustainable Design</li>
-                        <li>Kitchen & Bath Planning</li>
-                        <li>Lighting Design</li>
-                        <li>Color Theory & Materials</li>
-                        <li>Space Planning</li>
+                        <li><i class="fas fa-ruler"></i><span>Human-Centered Design</span></li>
+                        <li><i class="fas fa-th"></i><span>Space Planning</span></li>
+                        <li><i class="fas fa-leaf"></i><span>Sustainable Design</span></li>
+                        <li><i class="fas fa-spa"></i><span>Wellness-Focused Design</span></li>
+                        <li><i class="fas fa-universal-access"></i><span>Universal & Accessible Design</span></li>
+                        <li><i class="fas fa-utensils"></i><span>Kitchen & Bath Design</span></li>
+                        <li><i class="fas fa-lightbulb"></i><span>Furniture Planning & Layout</span></li>
+                        <li><i class="fas fa-palette"></i><span>Specification & Finish Selection</span></li>
+                        
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3><i class="fas fa-handshake"></i> Soft Skills</h3>
                     <ul>
-                        <li>Client Communication</li>
-                        <li>Project Management</li>
-                        <li>Problem Solving</li>
-                        <li>Attention to Detail</li>
-                        <li>Creative Thinking</li>
+                        <li><i class="fas fa-comments"></i><span>Problem Solving</span></li>
+                        <li><i class="fas fa-diagram-project"></i><span>Project Management</span></li>
+                        <li><i class="fas fa-puzzle-piece"></i><span>Creative Thinking</span></li>
+                        <li><i class="fas fa-clock"></i><span>Time Management</span></li>
+                        <li><i class="fas fa-eye"></i><span>Attention to Detail</span></li>
+                        <li><i class="fas fa-lightbulb"></i><span>Teamwork</span></li>
+                        <li><i class="fas fa-people-group"></i><span>Client Communication</span></li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-robot"></i> Technical Skills</h3>
+                    <ul>
+                        <li><i class="fas fa-wand-magic-sparkles"></i><span>Prompt Engineering</span></li>
+                        <li><i class="fas fa-comments"></i><span>ChatGPT, Claude, Midjourney, Vizcom, Deep Seek, Grok AI, and more.</span></li>
+                        <li><i class="fas fa-rocket"></i><span>Codex automation workflows</span></li>
+                        <li><i class="fas fa-code"></i><span>Visual Studio Code IDE</span></li>
+                        <li><i class="fas fa-terminal"></i><span>Cline AI Coding</span></li>
+                        <li><i class="fas fa-rocket"></i><span>Codex automation workflows</span></li>
                     </ul>
                 </div>
             </div>
@@ -188,11 +248,20 @@
             <div class="education-timeline">
                 <div class="education-item">
                     <div class="education-content">
-                        <h3>Bachelor of Fine Arts in Interior Design</h3>
+                        <div class="education-header">
+                            <h3>Bachelor of Fine Arts in Interior Design</h3>
+                            <img src="./assets/unt-stacked-logo.svg" alt="University of North Texas logo" class="education-logo">
+                        </div>
                         <p class="education-institution">University of North Texas - Denton - Texas</p>
                         <p class="education-year">Expected Graduation: May 2026</p>
-                        <p>Focused coursework in sustainable materials, universal design, and digital modeling. </p>
-                        <p>Active member of the Interior Design Student Association.</p>
+                        <p class="education-text">GPA: 3.87</p>
+                        <!-- <p>Focused coursework in sustainable materials, universal design, and digital modeling. </p> -->
+                        <p class="education-text">Active member of:</p>
+                        <ul class="affiliations-list">
+                            <li>IIDA - International Interior Design Association.</li>
+                            <li>ASID - American Society of Interior Designers</li>
+                            <li>NEWH - The Hospitality Industry Network</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -207,7 +276,10 @@
                 <div class="experience-item">
                     <div class="experience-content">
                         <h3>Interior Design Intern</h3>
-                        <p class="experience-company">Grace Design Studios - Fort Worth - Texas</p>
+                        <div class="experience-company-row">
+                            <img src="./assets/gracehebertcurtis_architects_apac_logo.jpg" alt="Grace Design Studios logo" class="experience-logo">
+                            <p class="experience-company">Grace Design Studios - Fort Worth - Texas</p>
+                        </div>
                         <p class="experience-duration">Summer 2025</p>
                         <p>Assisted senior designers on Revit drawings, space planning, FF&E selection, pricing, presentation boards, sample orders, and materials library updates on commercial projects.</p>
                         <p>Developed skills in client presentations, material sourcing, and construction documentation through hands-on experience in a professional design environment.</p>
@@ -216,7 +288,10 @@
                 <div class="experience-item">
                     <div class="experience-content">
                         <h3>Assistant Interior Designer</h3>
-                        <p class="experience-company">Design To WOW - Plano - Texas</p>
+                        <div class="experience-company-row">
+                            <img src="./assets/designtowow_logo.jpg" alt="Design To WOW logo" class="experience-logo">
+                            <p class="experience-company">Design To WOW - Plano - Texas</p>
+                        </div>
                         <p class="experience-duration">Spring 2025</p>
                         <p>Managed material selection, pricing, and client coordination.</p>
                         <p> Created mood boards and 3D models, supported marketing efforts.</p>
@@ -253,7 +328,7 @@
                     <div class="contact-details">
                         <div class="contact-item">
                             <h4><i class="fas fa-envelope"></i> Email</h4>
-                            <p>alice dot nguyen 615 @gmail.com</p>
+                            <p>alice dot nguyen 615 at gmail dot com</p>
                         </div>
                         <!-- <div class="contact-item">
                             <h4>Phone</h4>
@@ -288,6 +363,10 @@
         <img class="modal-content" id="modal-img">
         <div id="modal-caption"></div>
     </div>
+
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="scripts/main.js"></script>
 </body>

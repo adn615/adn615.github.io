@@ -1,9 +1,58 @@
+// Flag JS-enabled for CSS animations
+document.body.classList.add('has-js');
+
+// Typewriter effect for hero description
+const typeTargets = document.querySelectorAll('.type-target');
+typeTargets.forEach(target => {
+    const fullText = target.getAttribute('data-text') || target.textContent;
+    target.textContent = '';
+    let index = 0;
+    const speed = 30;
+    target.classList.add('typewriter-active');
+
+    const type = () => {
+        if (index <= fullText.length) {
+            target.textContent = fullText.slice(0, index);
+            index += 1;
+            setTimeout(type, speed);
+        } else {
+            target.classList.remove('typewriter-active');
+        }
+    };
+
+    type();
+});
+
+// Theme toggle handling
+const themeToggle = document.querySelector('.theme-toggle');
+const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const storedTheme = localStorage.getItem('theme');
+const applyTheme = (mode) => {
+    if (mode === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+        document.body.classList.remove('dark-mode');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+};
+
+applyTheme(storedTheme || (prefersDark ? 'dark' : 'light'));
+
+themeToggle.addEventListener('click', () => {
+    const isDark = document.body.classList.contains('dark-mode');
+    const nextTheme = isDark ? 'light' : 'dark';
+    applyTheme(nextTheme);
+    localStorage.setItem('theme', nextTheme);
+});
+
 // Mobile menu functionality
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
 
 navToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
+    navToggle.classList.toggle('active');
 });
 
 // Close mobile menu when clicking a link
@@ -11,6 +60,7 @@ const navLinks = document.querySelectorAll('.nav-menu a');
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
     });
 });
 
@@ -24,12 +74,16 @@ const portfolioItems = document.querySelectorAll('.portfolio-item');
 portfolioItems.forEach(item => {
     item.addEventListener('click', () => {
         const imgSrc = item.querySelector('img').src;
-        const title = item.querySelector('h3').textContent;
-        const description = item.querySelector('p').textContent;
+        // const title = item.querySelector('h3').textContent;
+        // const description = item.querySelector('p').textContent;
+
+        const title = item.querySelector('img').alt;
 
         modal.style.display = 'block';
         modalImg.src = imgSrc;
-        modalCaption.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
+        // modalCaption.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
+
+        modalCaption.innerHTML = `<h3>${title}</h3>`;
 
         // Prevent body scroll when modal is open
         document.body.style.overflow = 'hidden';
@@ -120,6 +174,7 @@ portfolioImages.forEach(img => {
 
 // Header background change on scroll
 const header = document.querySelector('.header');
+const backToTopBtn = document.querySelector('.back-to-top');
 let lastScrollTop = 0;
 
 window.addEventListener('scroll', () => {
@@ -139,5 +194,24 @@ window.addEventListener('scroll', () => {
         }
     }
 
+    if (backToTopBtn) {
+        if (scrollTop > 260) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    }
+
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
+
+window.dispatchEvent(new Event('scroll'));
+
+if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
