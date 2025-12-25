@@ -176,7 +176,10 @@
                         <p>Colorful Positano retreat inspired by Hans Hofmann, blending bold color with light and emotion.</p>
                         <!-- <p>Hans Hofmann-inspired vacation home balancing vibrant art walls with breezy flow.</p> -->
                     </div>
-                    <a href="./assets/projects/portfolio-casa-colori.pdf" download="casa-colori.pdf" class="cta-btn secondary"><i class="fas fa-images"></i>↓ Download PDF</a>
+                    <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                        <a href="./assets/projects/portfolio-casa-colori.pdf" download="casa-colori.pdf" class="cta-btn secondary"><i class="fas fa-images"></i>↓ Download PDF</a>
+                        <button class="cta-btn secondary watch-video-btn" data-project="casa-colori"><i class="fas fa-play"></i> Watch Video</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -361,6 +364,7 @@
     <div id="modal" class="modal">
         <span class="close-modal">&times;</span>
         <img class="modal-content" id="modal-img">
+        <iframe id="modal-video" class="modal-content" style="display:none;" allowfullscreen></iframe>
         <div id="modal-caption"></div>
     </div>
 

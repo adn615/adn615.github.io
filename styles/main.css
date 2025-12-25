@@ -968,6 +968,12 @@ p {
     max-width: 720px;
 }
 
+#modal-video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+}
+
 .close-modal {
     position: absolute;
     top: 18px;

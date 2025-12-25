@@ -67,48 +67,74 @@ navLinks.forEach(link => {
 // Portfolio gallery modal functionality
 const modal = document.getElementById('modal');
 const modalImg = document.getElementById('modal-img');
+const modalVideo = document.getElementById('modal-video');
 const modalCaption = document.getElementById('modal-caption');
 const closeModal = document.querySelector('.close-modal');
 const portfolioItems = document.querySelectorAll('.portfolio-item');
 
+// Function to open image modal
+function openImageModal(imgSrc, title) {
+    modalImg.style.display = 'block';
+    modalVideo.style.display = 'none';
+    modalImg.src = imgSrc;
+    modalCaption.innerHTML = `<h3>${title}</h3>`;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// Function to open video modal
+function openVideoModal(title) {
+    modalImg.style.display = 'none';
+    modalVideo.style.display = 'block';
+    modalVideo.src = 'https://www.youtube.com/embed/VKv25uQeZPo';
+    modalCaption.innerHTML = `<h3>${title}</h3>`;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// Function to close modal
+function closeModalFunc() {
+    modal.style.display = 'none';
+    modalImg.src = '';
+    modalVideo.src = '';
+    document.body.style.overflow = 'auto';
+}
+
 portfolioItems.forEach(item => {
     item.addEventListener('click', () => {
         const imgSrc = item.querySelector('img').src;
-        // const title = item.querySelector('h3').textContent;
-        // const description = item.querySelector('p').textContent;
-
         const title = item.querySelector('img').alt;
 
-        modal.style.display = 'block';
-        modalImg.src = imgSrc;
-        // modalCaption.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
-
-        modalCaption.innerHTML = `<h3>${title}</h3>`;
-
-        // Prevent body scroll when modal is open
-        document.body.style.overflow = 'hidden';
+        if (title === 'CASA COLORI Villa') {
+            openVideoModal(title);
+        } else {
+            openImageModal(imgSrc, title);
+        }
     });
 });
 
+// Watch video button functionality
+const watchVideoBtn = document.querySelector('.watch-video-btn');
+if (watchVideoBtn) {
+    watchVideoBtn.addEventListener('click', () => {
+        openVideoModal('CASA COLORI Villa');
+    });
+}
+
 // Close modal functionality
-closeModal.addEventListener('click', () => {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-});
+closeModal.addEventListener('click', closeModalFunc);
 
 // Close modal when clicking outside the image
 modal.addEventListener('click', (e) => {
     if (e.target === modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+        closeModalFunc();
     }
 });
 
 // Close modal with Escape key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.style.display === 'block') {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+        closeModalFunc();
     }
 });
 
