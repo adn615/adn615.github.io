@@ -998,6 +998,280 @@ p {
     padding: 10px;
 }
 
+/* Hidden control portal */
+.portal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    place-items: center;
+    z-index: 2600;
+}
+
+.portal.open {
+    display: grid;
+}
+
+.portal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(12, 16, 24, 0.72);
+    backdrop-filter: blur(6px);
+}
+
+.portal-card {
+    position: relative;
+    width: min(560px, 92vw);
+    padding: 28px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(31, 41, 55, 0.12);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.portal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(31, 41, 55, 0.12);
+    background: rgba(255, 255, 255, 0.9);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.portal-kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.7rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.portal-description {
+    color: var(--text-light);
+    margin-bottom: 18px;
+}
+
+.portal-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.portal-field label {
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.portal-field input {
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(31, 41, 55, 0.14);
+    font-family: inherit;
+}
+
+.portal-message {
+    margin-top: 12px;
+    font-weight: 700;
+    color: #b45309;
+    min-height: 20px;
+}
+
+.portal-controls-grid {
+    display: grid;
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.portal-metric {
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: rgba(31, 41, 55, 0.06);
+    border: 1px solid rgba(31, 41, 55, 0.1);
+}
+
+.portal-metric-label {
+    margin: 0 0 6px;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.portal-metric-value {
+    margin: 0 0 6px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.portal-metric-note {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.portal-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: rgba(31, 41, 55, 0.06);
+    border: 1px solid rgba(31, 41, 55, 0.08);
+}
+
+.portal-control-title {
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 4px;
+}
+
+.portal-control-note {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.portal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.portal-btn {
+    padding: 10px 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(31, 41, 55, 0.12);
+    background: rgba(255, 255, 255, 0.85);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.portal-btn.primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    border: none;
+}
+
+.portal-btn.ghost {
+    background: transparent;
+    color: var(--secondary-color);
+}
+
+.portal-switch {
+    position: relative;
+    width: 48px;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.portal-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.portal-slider {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: rgba(31, 41, 55, 0.2);
+    transition: background 0.2s ease;
+}
+
+.portal-slider::before {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    top: 3px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+}
+
+.portal-switch input:checked + .portal-slider {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+.portal-switch input:checked + .portal-slider::before {
+    transform: translateX(22px);
+}
+
+.portal-open {
+    overflow: hidden;
+}
+
+.portal-hide-portfolio #portfolio,
+.portal-hide-contact #contact {
+    display: none;
+}
+
+.portal-focus-mode .header,
+.portal-focus-mode .footer {
+    display: none;
+}
+
+.portal-focus-mode .back-to-top {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.dark-mode .portal-card {
+    background: rgba(15, 23, 42, 0.95);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+}
+
+.dark-mode .portal-close {
+    background: rgba(15, 23, 42, 0.9);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #e5e7eb;
+}
+
+.dark-mode .portal-control {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .portal-metric {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .portal-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #f8fafc;
+}
+
+.dark-mode .portal-btn.ghost {
+    background: transparent;
+}
+
+.dark-mode .portal-field input {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #f8fafc;
+}
+
+.dark-mode .portal-message {
+    color: #fbbf24;
+}
+
 /* Back to top button */
 .back-to-top {
     position: fixed;
