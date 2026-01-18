@@ -1452,7 +1452,8 @@ p {
 .dark-mode .contact-info,
 .dark-mode .portfolio-item,
 .dark-mode .education-item,
-.dark-mode .experience-item {
+.dark-mode .experience-item,
+.dark-mode .recommendation-item {
     background: rgba(255, 255, 255, 0.04);
     border-color: rgba(255, 255, 255, 0.08);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
@@ -1500,6 +1501,7 @@ p {
 }
 
 .dark-mode .experience,
+.dark-mode .recommendations,
 .dark-mode .contact {
     background: rgba(15, 23, 42, 0.7);
 }
